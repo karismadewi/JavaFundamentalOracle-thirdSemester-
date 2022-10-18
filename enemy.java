@@ -26,5 +26,7 @@ public class enemy extends Actor
         {
             getWorld().removeObject(this);
         }
+
     }
+    
 }

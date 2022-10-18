@@ -16,7 +16,15 @@ public class laser extends Actor
     public void act()
     {
         move(speed); 
-        if(isAtEdge())
+
+        if(isTouching(enemy.class))
+        {
+
+            removeTouching(enemy.class);
+            getWorld().removeObject(this);
+             
+        }
+        else if(isAtEdge())
         {
             getWorld().removeObject(this);
         }
@@ -25,6 +33,7 @@ public class laser extends Actor
     }
     public laser()
     {
+        
         
         
         
