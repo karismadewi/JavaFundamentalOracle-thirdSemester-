@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    public int laserCount = 0; 
+    public int laserTiming = 10;     
+    public hero hero = new hero();
     public int count=0;
     /**
      * Constructor for objects of class MyWorld.
@@ -20,15 +23,10 @@ public class MyWorld extends World
         prepare();
     }
     
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
+        
     private void prepare()
     {
-        hero hero = new hero();
         addObject(hero,54,221);
-        
     }
     public int timing=10+Greenfoot.getRandomNumber(60);
     public void act()
@@ -39,9 +37,23 @@ public class MyWorld extends World
             timing=10+Greenfoot.getRandomNumber(60);
             count=0; 
             enemy enemy=new enemy(); 
-            addObject(enemy,1280,y); 
+            addObject(enemy,1280,y);   
         }
         count++; 
+        
+        if(Greenfoot.isKeyDown("space"))
+        { 
+            if(laserCount==laserTiming)
+            {
+                laserCount=0; 
+                laser laser = new laser();  
+                addObject(laser,hero.getX(),hero.getY());
+            }
+            laserCount++;
+        }
+        
+
+        
     }
     
 
