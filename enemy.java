@@ -12,13 +12,16 @@ public class enemy extends Actor
      * Act - do whatever the enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public int speed; 
     public enemy()
     {
+        speed = 2+Greenfoot.getRandomNumber(8);
         setRotation(180);
     }
+    
     public void act()
     {
-        move(4);
+        move(speed);
         if(isAtEdge())
         {
             getWorld().removeObject(this);

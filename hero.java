@@ -31,4 +31,5 @@ public class hero extends Actor
             setLocation​(getX()+3, getY());
         }
     }
+
 }
