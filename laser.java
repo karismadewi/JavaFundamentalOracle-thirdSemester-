@@ -16,6 +16,10 @@ public class laser extends Actor
     public void act()
     {
         move(speed); 
+        if(isAtEdge())
+        {
+            getWorld().removeObject(this);
+        }
 
         // Add your action code here.
     }
